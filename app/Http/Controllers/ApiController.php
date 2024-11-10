@@ -10,10 +10,21 @@ use App\Models\NewMessage;
 use App\Models\NewUser;
 use App\Models\Post;
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+
+    // Get All Users
+    public function getAllUsers()
+    {
+        // You can include related data, like posts, roles, etc., if needed
+        $users = User::all(); // Fetches all users from the users table
+
+        return response()->json($users);
+    }
+
     // Function to create a new chat message
     public function createChatMessage(Request $request)
     {
@@ -23,6 +34,13 @@ class ApiController extends Controller
             'timestamp' => now(),
         ]);
         return response()->json($message);
+    }
+
+    // Get All Chat Messages
+    public function getAllChatMessages()
+    {
+        $messages = ChatMessage::all();
+        return response()->json($messages);
     }
 
     // Function to create a new comment
@@ -38,6 +56,13 @@ class ApiController extends Controller
         return response()->json($comment);
     }
 
+    // Get All Comments
+    public function getAllComments()
+    {
+        $comments = Comment::all();
+        return response()->json($comments);
+    }
+
     // Function to create a new document
     public function createDocument(Request $request)
     {
@@ -45,6 +70,13 @@ class ApiController extends Controller
             'documentImgLink' => $request->documentImgLink,
         ]);
         return response()->json($document);
+    }
+
+    // Get all documents
+    public function getAllDocuments()
+    {
+        $documents = Document::all();
+        return response()->json($documents);
     }
 
     // Function to create a new message
@@ -59,6 +91,13 @@ class ApiController extends Controller
         return response()->json($message);
     }
 
+    // Get all messages
+    public function getAllMessages()
+    {
+        $messages = Message::all();
+        return response()->json($messages);
+    }
+
     // Function to create a new chat
     public function createNewMessage(Request $request)
     {
@@ -71,6 +110,13 @@ class ApiController extends Controller
         return response()->json($newMessage);
     }
 
+    // Get all new messages
+    public function getAllNewMessages()
+    {
+        $newMessages = NewMessage::all();
+        return response()->json($newMessages);
+    }
+
     // Function to create a new user
     public function createNewUser(Request $request)
     {
@@ -79,6 +125,13 @@ class ApiController extends Controller
             'userProfileImage' => $request->userProfileImage,
         ]);
         return response()->json($newUser);
+    }
+
+    // Get all new users
+    public function getAllNewUsers()
+    {
+        $newUsers = NewUser::all();
+        return response()->json($newUsers);
     }
 
     // Function to create a new post
@@ -100,6 +153,13 @@ class ApiController extends Controller
         return response()->json($post);
     }
 
+    // Get all posts
+    public function getAllPosts()
+    {
+        $posts = Post::all();
+        return response()->json($posts);
+    }
+
     // Function to create a new review
     public function createReview(Request $request)
     {
@@ -109,5 +169,11 @@ class ApiController extends Controller
             'commentTimestamp' => now(),
         ]);
         return response()->json($review);
+    }
+    // Get all reviews
+    public function getAllReviews()
+    {
+        $reviews = Review::all();
+        return response()->json($reviews);
     }
 }

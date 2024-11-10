@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -24,7 +24,6 @@ return new class extends Migration {
         });
 
         Schema::create('chat_message', function (Blueprint $table) {
-            $table->id();
             $table->string('senderId');
             $table->string('message');
             $table->timestamp('timestamp');
@@ -45,7 +44,6 @@ return new class extends Migration {
         });
 
         Schema::create('message', function (Blueprint $table) {
-            $table->id();
             $table->string('senderId');
             $table->string('receiverId');
             $table->string('message');
@@ -57,7 +55,6 @@ return new class extends Migration {
             $table->string('avatarUrl');
             $table->string('fullName');
             $table->string('last_chat');
-            $table->string('chatId');
         });
 
         Schema::create('new_user', function (Blueprint $table) {
