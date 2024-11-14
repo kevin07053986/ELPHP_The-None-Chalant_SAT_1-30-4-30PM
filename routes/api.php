@@ -44,6 +44,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // CRUD operations for reviews
     Route::post('/review', [ApiController::class, 'createReview']);
     Route::get('/reviews', [ApiController::class, 'getAllReviews']);
+    
 });
 
 // This route returns the authenticated user
